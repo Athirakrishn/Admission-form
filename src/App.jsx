@@ -117,6 +117,17 @@ function App() {
       course: Yup.string().required('Course is required'),
     }),
     onSubmit: (values) => {
+alert(
+    `Submitted Details:\n
+    Name: ${values.name}\n
+    Address: ${values.address}\n
+    Mobile: ${values.mobile}\n
+    Email: ${values.email}\n
+    Gender: ${values.gender}\n
+    DOB: ${values.dob}\n
+    Course: ${values.course}`
+  );
+
 swal({
   title: "Are you sure?",
   text: "Once added, you are not be able to edit this details!!!!",
