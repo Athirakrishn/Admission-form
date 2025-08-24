@@ -143,119 +143,151 @@ swal({
 
   return (
   
-   <div >
-        <div className="container p-5 rounded-4 shadow-lg my-5" style={{ backgroundColor: "#fdfdfd", width: "800px" }}>
-          <h2 className="text-center text-primary mb-4"> <FaFileAlt />Higher Secondary Admission Form</h2>
-         <div className='container rounded-3 my-5 p-5' style={{backgroundColor: "#d6eaf7", }}>
-            <form className="d-flex flex-column gap-3" onSubmit={formik.handleSubmit}>
-      
-              <TextField
-                label="Full Name"
-                variant="standard"
-                name="name"
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
-                required
-              />
-      
-              <TextField
-                label="Address"
-                variant="standard"
-                name="address"
-                multiline
-                rows={2}
-                value={formik.values.address}
-                onChange={formik.handleChange}
-                error={formik.touched.address && Boolean(formik.errors.address)}
-                helperText={formik.touched.address && formik.errors.address}
-                required
-              />
-      
-              <TextField
-                label="Mobile"
-                variant="standard"
-                name="mobile"
-                value={formik.values.mobile}
-                onChange={formik.handleChange}
-                error={formik.touched.mobile && Boolean(formik.errors.mobile)}
-                helperText={formik.touched.mobile && formik.errors.mobile}
-                required
-              />
-      
-              <TextField
-                label="Email"
-                type="email"
-                variant="standard"
-                name="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-                required
-              />
-      
-              <FormControl>
-                <FormLabel>Gender</FormLabel>
-                <RadioGroup
-                  name="gender"
-                  value={formik.values.gender}
-                  onChange={formik.handleChange}
-                >
-                  <FormControlLabel value="female" control={<Radio />} label="Female" />
-                  <FormControlLabel value="male" control={<Radio />} label="Male" />
-                  <FormControlLabel value="other" control={<Radio />} label="Other" />
-                </RadioGroup>
-                {formik.touched.gender && formik.errors.gender && (
-                  <div style={{ color: "red", fontSize: "14px" }}>{formik.errors.gender}</div>
-                )}
-              </FormControl>
-      
-              <TextField
-                label="Date of Birth"
-                type="date"
-                variant="standard"
-                name="dob"
-                InputLabelProps={{ shrink: true }}
-                value={formik.values.dob}
-                onChange={formik.handleChange}
-                error={formik.touched.dob && Boolean(formik.errors.dob)}
-                helperText={formik.touched.dob && formik.errors.dob}
-                required
-              />
-      
-              <FormControl fullWidth>
-                <InputLabel>Course</InputLabel>
-                <Select
-                  name="course"
-                  value={formik.values.course}
-                  onChange={formik.handleChange}
-                  error={formik.touched.course && Boolean(formik.errors.course)}
-                >
-                  <MenuItem value={'Biology'}>Biology</MenuItem>
-                  <MenuItem value={'Computer Science'}>Computer Science</MenuItem>
-                  <MenuItem value={'Commerce'}>Commerce</MenuItem>
-                  <MenuItem value={'Humanities'}>Humanities</MenuItem>
-                </Select>
-                {formik.touched.course && formik.errors.course && (
-                  <div style={{ color: "red", fontSize: "14px" }}>{formik.errors.course}</div>
-                )}
-              </FormControl>
-      
-              <div className="d-flex justify-content-evenly my-3">
-                <Button type="submit" variant="contained" color="success">
-                  REGISTER
-                </Button>
-                <Button type="button" variant="contained" color="error" onClick={handleCancel}>
-                  CANCEL
-                </Button>
-              </div>
-            </form>
-         </div>
+   <div>
+  <div
+    className="container p-5 rounded-4 shadow-lg my-5"
+    style={{
+      backgroundColor: "#fdfdfd",
+      width: "100%",        // take full width on small screens
+      maxWidth: "800px",    // limit width on larger screens
+      margin: "auto",       // center horizontally
+      padding: "2rem",      // keeps padding flexible
+    }}
+  >
+    <h2 className="text-center text-primary mb-4">
+      <FaFileAlt /> Higher Secondary Admission Form
+    </h2>
+
+    <div
+      className="container rounded-3 my-5 p-5"
+      style={{
+        backgroundColor: "#d6eaf7",
+        width: "100%",
+        padding: "1.5rem",
+        borderRadius: "12px",
+      }}
+    >
+      <form className="d-flex flex-column gap-3" onSubmit={formik.handleSubmit}>
+        <TextField
+          label="Full Name"
+          variant="standard"
+          name="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
+          required
+          fullWidth
+        />
+
+        <TextField
+          label="Address"
+          variant="standard"
+          name="address"
+          multiline
+          rows={2}
+          value={formik.values.address}
+          onChange={formik.handleChange}
+          error={formik.touched.address && Boolean(formik.errors.address)}
+          helperText={formik.touched.address && formik.errors.address}
+          required
+          fullWidth
+        />
+
+        <TextField
+          label="Mobile"
+          variant="standard"
+          name="mobile"
+          value={formik.values.mobile}
+          onChange={formik.handleChange}
+          error={formik.touched.mobile && Boolean(formik.errors.mobile)}
+          helperText={formik.touched.mobile && formik.errors.mobile}
+          required
+          fullWidth
+        />
+
+        <TextField
+          label="Email"
+          type="email"
+          variant="standard"
+          name="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+          required
+          fullWidth
+        />
+
+        <FormControl>
+          <FormLabel>Gender</FormLabel>
+          <RadioGroup
+            name="gender"
+            value={formik.values.gender}
+            onChange={formik.handleChange}
+            row // gender options side by side
+          >
+            <FormControlLabel value="female" control={<Radio />} label="Female" />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+            <FormControlLabel value="other" control={<Radio />} label="Other" />
+          </RadioGroup>
+          {formik.touched.gender && formik.errors.gender && (
+            <div style={{ color: "red", fontSize: "14px" }}>{formik.errors.gender}</div>
+          )}
+        </FormControl>
+
+        <TextField
+          label="Date of Birth"
+          type="date"
+          variant="standard"
+          name="dob"
+          InputLabelProps={{ shrink: true }}
+          value={formik.values.dob}
+          onChange={formik.handleChange}
+          error={formik.touched.dob && Boolean(formik.errors.dob)}
+          helperText={formik.touched.dob && formik.errors.dob}
+          required
+          fullWidth
+        />
+
+        <FormControl fullWidth>
+          <InputLabel>Course</InputLabel>
+          <Select
+            name="course"
+            value={formik.values.course}
+            onChange={formik.handleChange}
+            error={formik.touched.course && Boolean(formik.errors.course)}
+          >
+            <MenuItem value={"Biology"}>Biology</MenuItem>
+            <MenuItem value={"Computer Science"}>Computer Science</MenuItem>
+            <MenuItem value={"Commerce"}>Commerce</MenuItem>
+            <MenuItem value={"Humanities"}>Humanities</MenuItem>
+          </Select>
+          {formik.touched.course && formik.errors.course && (
+            <div style={{ color: "red", fontSize: "14px" }}>{formik.errors.course}</div>
+          )}
+        </FormControl>
+
+        {/* Responsive Buttons */}
+        <div className="d-flex flex-column flex-sm-row justify-content-evenly gap-3 my-3">
+          <Button type="submit" variant="contained" color="success" fullWidth>
+            REGISTER
+          </Button>
+          <Button
+            type="button"
+            variant="contained"
+            color="error"
+            onClick={handleCancel}
+            fullWidth
+          >
+            CANCEL
+          </Button>
         </div>
-   </div>
- 
+      </form>
+    </div>
+  </div>
+</div>
+
   );
 }
 
